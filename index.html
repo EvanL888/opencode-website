@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seedlings: a todo list that grows</title>
+  <meta name="description" content="A todo list where every task is a seed. Water it, watch it sprout, and see your plot fill with flowers.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#notes">Skip to your tasks</a>
+
+  <header class="masthead">
+    <div class="title-block">
+      <p class="kicker">Field journal no. 1</p>
+      <h1>Seedlings</h1>
+      <p class="tagline">Every task starts as a seed. Water it, and watch the plot fill up.</p>
+    </div>
+    <button id="theme-toggle" class="theme" type="button" aria-pressed="false">
+      <span class="theme-dot" aria-hidden="true"></span>
+      <span id="theme-label">Switch to night</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="plot-section" aria-labelledby="plot-title">
+      <h2 id="plot-title" class="sr-only">Your plot</h2>
+      <div class="garden" id="garden">
+        <div class="sky" aria-hidden="true"><span class="orb"></span></div>
+        <div class="hills" aria-hidden="true"></div>
+        <div class="plants" id="plants" aria-hidden="true"></div>
+        <div class="soil" aria-hidden="true"></div>
+      </div>
+      <div class="plot-info">
+        <p id="plot-summary" class="summary" role="status"></p>
+        <div class="meter" aria-hidden="true"><span id="meter-fill"></span></div>
+        <ul class="legend" aria-label="Plant stages">
+          <li><span class="legend-art" id="legend-seed" aria-hidden="true"></span> Seed: planted, not started</li>
+          <li><span class="legend-art" id="legend-sprout" aria-hidden="true"></span> Sprout: in progress</li>
+          <li><span class="legend-art" id="legend-bloom" aria-hidden="true"></span> Bloom: done</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="columns">
+      <section class="packet" aria-labelledby="packet-title">
+        <p class="packet-top">Heirloom seeds &middot; plant this season</p>
+        <h2 id="packet-title">New seed packet</h2>
+        <form id="plant-form" autocomplete="off">
+          <div class="field">
+            <label for="task-text">What are you planting?</label>
+            <input id="task-text" name="text" type="text" maxlength="80" required
+                   placeholder="Email Prof. Alvarez about the project">
+          </div>
+
+          <fieldset class="field energy">
+            <legend>How much light will it need?</legend>
+            <div class="chips">
+              <label class="chip">
+                <input type="radio" name="energy" value="quick" checked>
+                <span><b>Marigold</b><small>quick, about 5 min</small></span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="energy" value="steady">
+                <span><b>Poppy</b><small>steady, about 30 min</small></span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="energy" value="deep">
+                <span><b>Foxglove</b><small>deep, 2 hours or more</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="task-due">Harvest by <span class="optional">(optional)</span></label>
+            <input id="task-due" name="due" type="date">
+          </div>
+
+          <button type="submit" class="primary">Put it in the ground</button>
+          <p id="form-msg" class="form-msg" role="status"></p>
+        </form>
+      </section>
+
+      <section id="notes" class="notes" aria-labelledby="notes-title" tabindex="-1">
+        <div class="notes-head">
+          <h2 id="notes-title">Field notes</h2>
+          <div class="filters" role="group" aria-label="Show plants by stage">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="0" aria-pressed="false">Seeds</button>
+            <button type="button" data-filter="1" aria-pressed="false">Sprouts</button>
+            <button type="button" data-filter="2" aria-pressed="false">Blooms</button>
+          </div>
+        </div>
+        <ul id="task-list" class="task-list"></ul>
+        <p id="empty" class="empty" hidden></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p>Saved only in this browser. Nothing leaves your computer.</p>
+    <button id="clear-bloomed" type="button" class="linkish">Clear all blooms</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
