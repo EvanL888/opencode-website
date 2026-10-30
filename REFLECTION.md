@@ -2,18 +2,23 @@
 
 ## Model and provider
 
-I built this site with **Claude Code** (in the Claude desktop app) using **Claude Sonnet 5.5**
-(`claude-sonnet-5-5`) from Anthropic, not OpenCode. The agent worked inside the cloned
-`opencode-website` folder.
+I started working on this site with OpenCode and later refined it with Claude Code, using
+Claude Sonnet 5.5 from Anthropic. The agent worked inside the cloned `opencode-website`
+folder.
 
 ## One useful prompt
 
-> make it a little bit more detailed though. it looks way to ai. Make the UI a little more unique and beautiful
+> With the todo list, try to make it more detailed and unique. Incorporate a flower theme that allows you to show progression through three steps. Seeds, sprouts, and blooms. Give it a cute gamey aesthetic. 
 
-My first version was a plain card layout with emoji icons. This prompt pushed the agent
-to redesign it. The result: hand-drawn SVG plants instead of emoji, a day/night garden
-scene, a seed-packet style form, three task stages (seed, sprout, bloom) and optional
-harvest dates.
+I wanted the todo list to feel less like a generic app and more like a small game.
+This prompt gave the agent a clear theme (a flower garden), a clear mechanic (three
+stages: seed, sprout, bloom) and a target feel (cute and gamey). The agent used those
+three details to decide on the design.
+
+What it produced: hand-drawn SVG plants for each stage, a garden scene above the list
+that fills up as tasks progress, a seed-packet style form, and optional harvest dates.
+I then asked for a less generic look, which led to the drawn plants, the day and night
+garden scene, and the seed-packet form.
 
 ## One observed tool action
 
